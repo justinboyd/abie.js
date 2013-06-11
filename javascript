@@ -1,5 +1,5 @@
 function abiejs(d) {
-  /*
+	/*
 		abiejs.d === defaults
 		abiejs.b === document body
 		abiejs.c === abie container
@@ -15,6 +15,7 @@ function abiejs(d) {
 		if(!def.meritColor){def.meritColor = 'green';}
 		if(!def.demeritColor){def.demeritColor = 'red';}
 		if(def.cookie){def.cookie = true;} else {def.cookie = false;}
+		if(def.flag){def.flag = true;} else {def.flag = false;}
 		if(!def.cookieShowLimit){def.cookieShowLimit = 'none';}
 		if(!def.cookieExperiation){def.cookieExperiation = 10000;}
 		return def;	
@@ -51,6 +52,7 @@ function abiejs(d) {
 		abiejs.e.id = 'abieExp';
 		//Declare position
 		abiejs.e.style.position = 'absolute';
+		abiejs.e.style.cursor = 'pointer';
 		//Set the merit here (this will need to be a condition) !!!!!!!!!!!
 		abiejs.e.innerHTML = abiejs.d.content;
 		//Append element to container
@@ -306,6 +308,31 @@ function abiejs(d) {
 			abieMeritDemerit();
 		});
 	}
+	function abiesFlag(pos) {
+		if(abiejs.d.flag === true) {
+			if(pos.indexOf('t') !== -1) {
+				if(pos.indexOf('r') !== -1) {
+					abiejs.e.style.WebkitBorderRadius = '0 0 0 100%';
+					abiejs.e.style.MozBorderRadius = '0 0 0 100%';
+					abiejs.e.style.borderRadius = '0 0 0 100%';
+				} else {
+					abiejs.e.style.WebkitBorderRadius = '0 0 100% 0';
+					abiejs.e.style.MozBorderRadius = '0 0 100% 0';
+					abiejs.e.style.borderRadius = '0 0 100% 0';
+				}
+			} else {
+				if(pos.indexOf('r') !== -1) {
+					abiejs.e.style.WebkitBorderRadius = '100% 0 0 0';
+					abiejs.e.style.MozBorderRadius = '100% 0 0 0';
+					abiejs.e.style.borderRadius = '100% 0 0 0';
+				} else {
+					abiejs.e.style.WebkitBorderRadius = '0 100% 0 0';
+					abiejs.e.style.MozBorderRadius = '0 100% 0 0';
+					abiejs.e.style.borderRadius = '0 100% 0 0';
+				}
+			}
+		}
+	}
 	//Make Cookie
 	function abieMakeCookies() {
 		//Check if user wants cookie
@@ -333,6 +360,7 @@ function abiejs(d) {
 	
 	createAbie(abiejs.d.position);
 	bindAbie(abiejs.d.position);
+	abiesFlag(abiejs.d.position);
 	abieMakeCookies();
 	abieRun(abiejs.d.position);
 };
