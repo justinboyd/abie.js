@@ -1,10 +1,15 @@
 abie.js
 =======
-A.Better.Internet.Experience
+A Better Internet Experience:
+
 abie.js is a tiny plugin that allows you to easily reward your users for having an up-to-date/compatible browser.
 
+You can designate the kinds of merits and demerits your users should experience. You are free to reward
+your users with points, additional content, funny videos, avatars, a simple thank you or anything else you
+feel your users deserve.
 
-abie argues a lot:
+Here is how you can define abie.js:
+
 abiejs({
     'position':'tr', //tr "top right", tl "top left", br "bottom right", bl "bottom left"
     'width':'10', //width of abie container
