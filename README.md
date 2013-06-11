@@ -6,7 +6,7 @@ abie.js is a tiny plugin that allows you to easily reward your users for having 
 
 abie argues a lot:<br />
 abiejs({<br />
-&nbsp;&nbsp;&nbsp;&nbsp;'position':'tr', //tr "top righ", tl "top left", br "bottom right", bl "bottom left"<br />
+&nbsp;&nbsp;&nbsp;&nbsp;'position':'tr', //tr "top right", tl "top left", br "bottom right", bl "bottom left"<br />
 &nbsp;&nbsp;&nbsp;&nbsp;'width':'10', //width of abie container<br />
 &nbsp;&nbsp;&nbsp;&nbsp;'height':'10', //height of abie container<br />
 &nbsp;&nbsp;&nbsp;&nbsp;'showTime': 3000, //How long abie stays on screen<br />
