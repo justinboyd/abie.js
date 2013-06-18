@@ -372,4 +372,4 @@ function abiejs(d) {
 	abiesFlag(abiejs.d.position);
 	abieMakeCookies();
 	abieRun(abiejs.d.position);
-};
+}
