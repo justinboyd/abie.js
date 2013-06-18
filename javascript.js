@@ -1,4 +1,5 @@
 function abiejs(d) {
+	"use strict";
 	/*
 		abiejs.d === defaults
 		abiejs.b === document body
@@ -15,19 +16,22 @@ function abiejs(d) {
 		if(!def.meritColor){def.meritColor = 'green';}
 		if(!def.demeritColor){def.demeritColor = 'red';}
 		if(def.cookie){def.cookie = true;} else {def.cookie = false;}
-		if(def.flag){def.flag = true;} else {def.flag = false;}
 		if(!def.cookieShowLimit){def.cookieShowLimit = 'none';}
 		if(!def.cookieExperiation){def.cookieExperiation = 10000;}
+		if(def.flag){def.flag = true;} else {def.flag = false;}
+
+
 		return def;	
 	})(d);
 	navigator.sayswho = (function() {
 		var N= navigator.appName, ua= navigator.userAgent, tem;
 		var M= ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
-		if(M &&(tem= ua.match(/version\/([\.\d]+)/i)) != null)
-		M[2] = tem[1];
+		if(M &&(tem= ua.match(/version\/([\.\d]+)/i)) !== null){M[2] = tem[1];}
+
 		M= M? [M[1], M[2]]: [N,  navigator.appVersion, '-?'];
 		return M;
 	})();		
+
 	/*
 	 * navigator.sayswho[0] === browser name
 	 * navigator.sayswho[1] === browser version
@@ -92,12 +96,15 @@ function abiejs(d) {
 	}
 	//Create Cookie
 	function createCookie(name,value,days) {
+		var expires = '';
 		if (days) {
 			var date = new Date();
 			date.setTime(date.getTime()+(days*24*60*60*1000));
-			var expires = "; expires="+date.toGMTString();
+			expires = "; expires="+date.toGMTString();
+		}else {
+			expires = "";
 		}
-		else var expires = "";
+
 		document.cookie = name+"="+value+expires+"; path=/";
 	}
 	//Read Cookie
@@ -106,8 +113,8 @@ function abiejs(d) {
 		var ca = document.cookie.split(';');
 		for(var i=0;i < ca.length;i++) {
 			var c = ca[i];
-			while (c.charAt(0)==' ') c = c.substring(1,c.length);
-			if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+			while (c.charAt(0) == ' ') {c = c.substring(1,c.length);}
+			if (c.indexOf(nameEQ) == 0) {return c.substring(nameEQ.length,c.length);}
 		}
 		return null;
 	}
@@ -155,7 +162,7 @@ function abiejs(d) {
 			danceOutAbie.dec = 0;	
 		}
 		//If abie's height is less than 0 increment the value
-		 if(danceOutAbie.dec < h) {
+		if(danceOutAbie.dec < h) {
 			setTimeout(function(){
 				if(pos === 't') {
 					abiejs.e.style.top = '-' + danceOutAbie.dec + 'px';
@@ -244,6 +251,8 @@ function abiejs(d) {
 		}
 	}
 	//Merit or Demerit
+	function meriter() {window.location = abiejs.d.mer;}
+	function demeriter() {window.location = abiejs.d.dmer;}
 	function abieMeritDemerit() {
 		//Get abies judgement
 		abieMeritDemerit.judgement = judgeAbie();
@@ -251,7 +260,7 @@ function abiejs(d) {
 		if(abieMeritDemerit.judgement === true) {
 			//If string send user to page
 			if(typeof abiejs.d.merit === 'string') {
-				return window.location = abiejs.d.merit;
+				return meriter();
 			//Else try to run as function
 			} else {
 				return abiejs.d.merit();
@@ -259,13 +268,13 @@ function abiejs(d) {
 		} else if(abieMeritDemerit.judgement === false) {
 			//If string send user to page
 			if(typeof abiejs.d.demerit === 'string') {
-				return window.location = abiejs.d.demerit;
+				return demeriter();
 			//Else try to run as function
 			} else {
 				return abiejs.d.demerit();
 			}
 		} else {
-			
+			return abiejs.d.dmer();	
 		}
 	}
 	function abieRun(pos) {
