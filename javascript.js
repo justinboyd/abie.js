@@ -259,7 +259,7 @@ function abiejs(d) {
 		} else if(abieMeritDemerit.judgement === false) {
 			//If string send user to page
 			if(typeof abiejs.d.demerit === 'string') {
-				return window.location = abiejs.d.merit;
+				return window.location = abiejs.d.demerit;
 			//Else try to run as function
 			} else {
 				return abiejs.d.demerit();
