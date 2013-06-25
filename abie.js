@@ -19,7 +19,11 @@ function abiejs(d) {
 		if(!def.cookieShowLimit){def.cookieShowLimit = 'none';}
 		if(!def.cookieExperiation){def.cookieExperiation = 10000;}
 		if(def.flag){def.flag = true;} else {def.flag = false;}
-
+		if(!def.chrome){def.chrome = 27;}
+		if(!def.firefox){def.firefox = 21;}
+		if(!def.msie){def.msie = 9;}
+		if(!def.safari){def.safari = 6;}
+		if(!def.opera){def.opera = 12;}
 
 		return def;	
 	})(d);
@@ -211,35 +215,35 @@ function abiejs(d) {
 	function judgeAbie() {
 		var v = parseInt(navigator.sayswho[1], 10);
 		if(navigator.sayswho[0] === 'Chrome'){
-			if(v < 27) {
+			if(v < d.chrome) {
 				return false;
 			} else {
 				return true;
 			}
 			
 		} else if(navigator.sayswho[0] === 'Firefox') {
-			if(v < 21) {
+			if(v < d.firefox) {
 				return false;
 			} else {
 				return true;
 			}
 			
 		} else if(navigator.sayswho[0] === 'MSIE') {
-			if(v < 9) {
+			if(v < d.msie) {
 				return false;
 			} else {
 				return true;
 			}
 			
 		} else if(navigator.sayswho[0] === 'Safari') {
-			if(v < 6) {
+			if(v < d.safari) {
 				return false;
 			} else {
 				return true;
 			}
 			
 		} else if(navigator.sayswho[0] === 'Opera') {
-			if(v < 12) {
+			if(v < d.opera) {
 				return false;
 			} else {
 				return true;
