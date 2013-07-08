@@ -19,11 +19,11 @@ function abiejs(d) {
 		if(!def.cookieShowLimit){def.cookieShowLimit = 'none';}
 		if(!def.cookieExperiation){def.cookieExperiation = 10000;}
 		if(def.flag){def.flag = true;} else {def.flag = false;}
-		if(!def.chrome){def.chrome = 27;}
-		if(!def.firefox){def.firefox = 21;}
+		if(!def.chrome){def.chrome = 8;}
+		if(!def.firefox){def.firefox = 6;}
 		if(!def.msie){def.msie = 9;}
-		if(!def.safari){def.safari = 6;}
-		if(!def.opera){def.opera = 12;}
+		if(!def.safari){def.safari = 5;}
+		if(!def.opera){def.opera = 11;}
 
 		return def;	
 	})(d);
