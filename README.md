@@ -10,7 +10,7 @@ feel your users deserve.
 
 More documentation at: [http://abiejs.com](http://abiejs.com)
 
-Made by Justin Boyd: justinboyd [at] gmail
+Made by Justin Boyd: justinboyd5 [at] gmail
 
 
 Here is an easy example of abie.js:
